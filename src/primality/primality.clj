@@ -1,4 +1,6 @@
 (ns primality.primality)
 
 (defn prime? [n]
-  true)
+  (cond
+    (= n 2)           true
+    (zero? (rem n 2)) false))

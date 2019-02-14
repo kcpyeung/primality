@@ -4,4 +4,7 @@
 
 (deftest even-numbers
   (testing "2 is prime"
-    (is (prime? 2))))
+    (is (prime? 2)))
+
+  (testing "all other even numbers are not prime"
+    (is (not (prime? 4)))))
