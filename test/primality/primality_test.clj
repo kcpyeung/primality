@@ -19,3 +19,10 @@
 (deftest three
   (testing "3 is prime"
     (is (prime? 3))))
+
+(deftest brute-force-division
+  (testing "not prime"
+           (is (not (prime? 35))))
+
+  (testing "prime"
+           (is (prime? 11))))
