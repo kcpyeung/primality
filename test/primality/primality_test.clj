@@ -8,3 +8,7 @@
 
   (testing "all other even numbers are not prime"
     (is (not (prime? 4)))))
+
+(deftest three
+  (testing "3 is prime"
+    (is (prime? 3))))
