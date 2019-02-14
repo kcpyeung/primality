@@ -1,4 +1,4 @@
-(ns primality.primality)
+(ns prime.primality)
 
 (defn prime? [n]
   (cond

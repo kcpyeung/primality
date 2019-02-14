@@ -1,6 +1,6 @@
-(ns primality.primality-test
+(ns prime.primality-test
   (:require [clojure.test :refer :all]
-            [primality.primality :refer :all]))
+            [prime.primality :refer :all]))
 
 (deftest smaller-than-two
   (testing "0 is not prime"
