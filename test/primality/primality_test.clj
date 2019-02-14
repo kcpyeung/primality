@@ -2,6 +2,13 @@
   (:require [clojure.test :refer :all]
             [primality.primality :refer :all]))
 
+(deftest smaller-than-two
+  (testing "0 is not prime"
+           (is (not (prime? 0))))
+
+  (testing "1 is not prime"
+           (is (not (prime? 1)))))
+
 (deftest even-numbers
   (testing "2 is prime"
     (is (prime? 2)))
