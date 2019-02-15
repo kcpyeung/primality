@@ -7,4 +7,12 @@
        (filter prime?)))
 
 (defn factors-of [n]
-  [1])
+  (if (= n 1)
+    [1]
+    (->> n
+         primes-up-to
+         (map #(/ n %))
+         (filter integer?)
+         first
+         (* n)
+         vector)))

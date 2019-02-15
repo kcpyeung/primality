@@ -15,6 +15,12 @@
   (testing "n itself is included if prime"
            (is (= [2 3 5 7] (primes-up-to 7)))))
 
-(deftest one
-  (testing "factor of 1 is 1"
-           (is (= [1] (factors-of 1)))))
+(deftest factors-of-prime-numbers
+  (testing "1"
+           (is (= [1] (factors-of 1))))
+
+  (testing "2"
+           (is (= [2] (factors-of 2))))
+
+  (testing "11"
+           (is (= [11] (factors-of 11)))))
