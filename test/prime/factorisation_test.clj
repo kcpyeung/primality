@@ -6,6 +6,12 @@
   (testing "n is non-prime"
            (is (= [2 3 5 7 11] (primes-up-to 12))))
 
+  (testing "2 works"
+           (is (= [2] (primes-up-to 2))))
+
+  (testing "1 is not a prime"
+           (is (= [] (primes-up-to 1))))
+
   (testing "n itself is included if prime"
            (is (= [2 3 5 7] (primes-up-to 7)))))
 
