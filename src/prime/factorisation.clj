@@ -6,13 +6,16 @@
        (range 2)
        (filter prime?)))
 
-(defn factors-of [n]
+(defn- factors-of0 [n factors]
   (if (= n 1)
-    [1]
-    (->> n
-         primes-up-to
-         (map #(/ n %))
-         (filter integer?)
-         first
-         (* n)
-         vector)))
+    factors
+    (let [quotient        (->> n
+                               primes-up-to
+                               (map #(/ n %))
+                               (filter integer?)
+                               first)
+          smallest-factor (/ n quotient)]
+      (factors-of0 quotient (conj factors smallest-factor)))))
+
+(defn factors-of [n]
+  (factors-of0 n []))
