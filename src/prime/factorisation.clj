@@ -17,5 +17,20 @@
           smallest-factor (/ n quotient)]
       (factors-of0 quotient (conj factors smallest-factor)))))
 
+(defn pretty-index-notation[[factor power]]
+  (if (= power 1)
+    (str factor)
+    (str factor "^" power)))
+
+(defn index-notation [ns]
+  (->> ns
+       frequencies
+       (map pretty-index-notation)
+       (clojure.string/join " * ")))
+
 (defn factors-of [n]
-  (factors-of0 n []))
+  (if (not (> n 1))
+    "only integers greater than 1 are supported"
+    (->>
+     (factors-of0 n [])
+     index-notation)))

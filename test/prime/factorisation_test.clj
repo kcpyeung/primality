@@ -15,22 +15,42 @@
   (testing "n itself is included if prime"
            (is (= [2 3 5 7] (primes-up-to 7)))))
 
-(deftest factors-of-prime-numbers
+(deftest invalid-numbers
   (testing "1"
-           (is (= [] (factors-of 1))))
+           (is (= "only integers greater than 1 are supported" (factors-of 1))))
 
+  (testing "0"
+           (is (= "only integers greater than 1 are supported" (factors-of 1))))
+
+  (testing "-5"
+           (is (= "only integers greater than 1 are supported" (factors-of 1)))))
+
+(deftest factors-of-prime-numbers
   (testing "2"
-           (is (= [2] (factors-of 2))))
+           (is (= "2" (factors-of 2))))
 
   (testing "11"
-           (is (= [11] (factors-of 11)))))
+           (is (= "11" (factors-of 11)))))
 
 (deftest factors-of-composite-numbers
-  (testing "6"
-           (is (= [2 3] (factors-of 6))))
+  (testing "simple multiplication"
+           (is (= "2 * 3" (factors-of 6))))
 
-  (testing "32"
-           (is (= [2 2 2 2 2] (factors-of 32))))
+  (testing "single index notation"
+           (is (= "2^5" (factors-of 32))))
 
-  (testing "100"
-           (is (= [2 2 5 5] (factors-of 100)))))
+  (testing "multiple index notations"
+           (is (= "2^2 * 5^2" (factors-of 100)))))
+
+(deftest pretty-print-index-notation
+  (testing "single number"
+           (is (= "3" (index-notation [3]))))
+
+  (testing "simple multiplication"
+           (is (= "2 * 3" (index-notation [2 3]))))
+
+  (testing "single index notation"
+           (is (= "2^5" (index-notation [2 2 2 2 2]))))
+
+  (testing "multiple index notations"
+           (is (= "2^5 * 3^2" (index-notation [2 2 2 2 2 3 3])))))
